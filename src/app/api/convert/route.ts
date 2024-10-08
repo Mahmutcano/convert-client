@@ -1,10 +1,11 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'POST') {
-    res.status(200).json({ message: 'POST request received' });
-  } else {
-    res.setHeader('Allow', ['POST']);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
-  }
+export async function POST(req: Request) {
+  // POST isteklerini burada işleyin
+  return NextResponse.json({ message: 'POST request received' });
+}
+
+export async function GET(req: Request) {
+  // Eğer GET isteği de desteklemek istiyorsanız
+  return NextResponse.json({ message: 'GET request received' });
 }
