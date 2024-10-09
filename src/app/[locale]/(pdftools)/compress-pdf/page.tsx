@@ -171,7 +171,7 @@ export default function Compress() {
           )}
           {compressedFileIcon && fileId && (
             <div className='flex flex-col justify-center items-center'>
-              <img
+              <Image
                 src={compressedFileIcon}
                 alt={t('CompressedFileIcon')}
                 className="object-contain rounded-lg w-16 h-16 mt-4"

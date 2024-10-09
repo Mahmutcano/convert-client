@@ -6,6 +6,7 @@ import { Progress } from '@/components/ui/progress';
 import FileUpload from '@/components/shared/file-upload';
 import { formatFileSize, getFileExtension } from '@/utils/getFileExtension';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 export default function JpgToPdfConversion() {
   const [file, setFile] = useState<File | null>(null);
@@ -142,7 +143,7 @@ export default function JpgToPdfConversion() {
           )}
           {convertedFileIcon && fileId && (
             <>
-              <img
+              <Image
                 src={convertedFileIcon}
                 alt={t('ConvertedFileIcon')}
                 className="object-contain rounded-lg w-16 h-16 mt-4"

@@ -4,6 +4,7 @@ import React from 'react';
 import { CloudUploadIcon, XIcon } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { getFileIcon } from '@/utils/getFileExtension';
+import Image from 'next/image';
 
 interface FileUploadProps {
   file: File | null;
@@ -22,7 +23,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ file, error, onFileChange, onDr
     >
       {file ? (
         <div className="w-full flex flex-col items-center border border-dashed p-4 m-2 rounded-lg shadow-md relative">
-          <img
+          <Image
             src={getFileIcon(file)}
             alt="Uploaded file preview"
             className="object-contain rounded-lg w-24 h-24"

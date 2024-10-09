@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button"
 import { PDFDocument } from 'pdf-lib';
 import * as pdfjsLib from 'pdfjs-dist';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import Image from 'next/image';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
@@ -182,7 +183,7 @@ export default function MergePdf() {
                             >
                               <Card className="w-24 h-32 p-2 flex flex-col justify-center items-center">
                                 <CardContent className="p-2">
-                                  <img
+                                  <Image
                                     src={thumbnails[index]}
                                     alt={`PDF File ${index + 1}`}
                                     className="object-contain rounded-lg w-16 h-24"
@@ -203,7 +204,7 @@ export default function MergePdf() {
           )}
           {mergedPdfUrl && (
             <div className='flex flex-col justify-center items-center'>
-              <img
+              <Image
                 src='/assets/icons/files/png/016-pdf.png'
                 alt={t('MergedPdfIcon')}
                 className="object-contain rounded-lg w-16 h-16 mt-4"

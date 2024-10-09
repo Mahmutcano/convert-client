@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Input } from '@/components/ui/input';
 import { ArrowLeftRight, CloudUploadIcon, Download, XIcon } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
+import Image from 'next/image';
 
 export default function BulkFileConversion() {
   const [files, setFiles] = useState<FileList | null>(null);
@@ -138,7 +139,7 @@ export default function BulkFileConversion() {
             <div className="w-full flex flex-wrap justify-center overflow-y-auto">
               {Array.from(files).map((file, index) => (
                 <div key={index} className="flex flex-col justify-center items-center border border-dashed p-2 m-2 rounded-lg shadow-md relative w-1/3">
-                  <img
+                  <Image
                     src={getFileIcon(file.name)}
                     alt="Uploaded file preview"
                     className="object-contain rounded-lg w-16 h-16"

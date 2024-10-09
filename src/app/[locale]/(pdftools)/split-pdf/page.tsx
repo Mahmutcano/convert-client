@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { PDFDocument } from 'pdf-lib';
 import * as pdfjsLib from 'pdfjs-dist';
+import Image from 'next/image';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
@@ -162,7 +163,7 @@ export default function SplitPdf() {
               {thumbnails.map((thumbnail, index) => (
                 <Card key={index} className="flex flex-col justify-center items-center">
                   <CardContent className="p-4">
-                    <img
+                    <Image
                       src={thumbnail}
                       alt={`Page ${index + 1}`}
                       className="object-contain rounded-lg w-32 h-32"
