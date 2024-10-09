@@ -68,7 +68,7 @@ const Navbar: React.FC<NavbarProps> = ({ appName }) => {
           </NavigationMenu>
           <ThemeButton />
           <CustomSearchCombobox />
-          {/* <LocaleSwitcher /> */}
+          <LocaleSwitcher />
         </div>
         <div className="block lg:hidden ml-4">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>

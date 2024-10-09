@@ -62,10 +62,10 @@ export default function DynamicSearchInput() {
       {isOpen && searchTerm && (
         <ul
           ref={dropdownRef}
-          className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+          className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-background py-1 text-base shadow-lg ring-1 ring-primary ring-opacity-5 focus:outline-none sm:text-sm hover:text-primary"
         >
           {filteredEntries.length === 0 ? (
-            <li className="relative cursor-default select-none py-2 px-4 text-gray-700">
+            <li className="relative cursor-default select-none py-2 px-4 text-foreground hover:text-primary">
               No pages found.
             </li>
           ) : (

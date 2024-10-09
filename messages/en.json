@@ -24,7 +24,10 @@
         "color_tools_title": "Color Tools",
         "color_tools_description": "Manage and generate color palettes easily.",
         "conversions_title": "Unit Conversion Tools",
-        "conversions_description": "Quickly and easily convert units for length, weight, temperature, and more."
+        "conversions_description": "Quickly and easily convert units for length, weight, temperature, and more.",
+        "calculators_title": "Calculators",
+        "calculators_description": "Perform various calculations quickly and accurately."
+
     },
     "Hero": {
         "ourServices": "All-in-One Online Tools",
@@ -392,7 +395,7 @@
         "about": "Video and Audio Tools",
         "services": "Image Conversion",
         "products": "Calculators",
-        "contact": "Color Tools",
+        "contact": "Contact",
         "address": "Ankara, Çankaya, Oran Mahallesi",
         "phone": "+90 538 443 9701",
         "email": "ozgancan9@gmail.com",

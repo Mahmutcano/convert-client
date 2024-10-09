@@ -5,7 +5,6 @@ import { ChevronsUpDown } from "lucide-react"
 import { usePathname, useRouter } from "@/lib/i18nNavigation"
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover"
 import { Button } from "../ui/button"
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "../ui/command"
 import { useTranslations } from "next-intl"
 
 export default function LocaleSwitcher() {
@@ -17,9 +16,11 @@ export default function LocaleSwitcher() {
   const pathname = usePathname();
 
   const handleChange = (newLocale: string) => {
-    router.push(pathname, { locale: newLocale });
-    router.refresh();
+    const currentPath = pathname || "/"; // Geçerli yol mevcut değilse kök yolu kullan
+    router.push(currentPath, { locale: newLocale }); // Yolu ve yeni dili ayarlıyoruz
+    router.refresh(); // Sayfayı yeniliyoruz
     setValue(newLocale); // Seçilen dilin güncellenmesi
+    setOpen(false); // Popover'ı kapat
   };
 
   const localeOptions = [
@@ -36,34 +37,22 @@ export default function LocaleSwitcher() {
           aria-expanded={open}
           className="w-[180px] justify-between cursor-pointer"
         >
-          {value
-            ? localeOptions.find((localeOption) => localeOption.value === value)?.label
-            : "Türkçe"}
+          {localeOptions.find((localeOption) => localeOption.value === value)?.label || "Türkçe"}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[180px] p-0">
-        <Command>
-          <CommandInput placeholder={t('search_language')} />
-          <CommandList>
-            <CommandEmpty>{t('not_language')}</CommandEmpty>
-            <CommandGroup>
-              {localeOptions.map((localeOption) => (
-                <CommandItem
-                  key={localeOption.value}
-                  value={localeOption.value}
-                  onSelect={() => {
-                    handleChange(localeOption.value);
-                    setOpen(false);
-                  }}
-                  className="cursor-pointer"
-                >
-                  {localeOption.label}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-        </Command>
+      <PopoverContent className="w-[180px] p-2">
+        <ul className="space-y-1">
+          {localeOptions.map((localeOption) => (
+            <li
+              key={localeOption.value}
+              onClick={() => handleChange(localeOption.value)}
+              className="cursor-pointer px-2 py-1 hover:bg-gray-100 rounded-md"
+            >
+              {localeOption.label}
+            </li>
+          ))}
+        </ul>
       </PopoverContent>
     </Popover>
   )

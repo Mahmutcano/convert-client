@@ -1,4 +1,4 @@
-import { FileTextIcon, ImageIcon, VideoIcon, PaletteIcon } from 'lucide-react';
+import { FileTextIcon, ImageIcon, VideoIcon, PaletteIcon, Calculator, Dumbbell } from 'lucide-react';
 
 export const getNavComponents = (t: any) => [
     {
@@ -24,5 +24,17 @@ export const getNavComponents = (t: any) => [
         href: "/color-tools",
         icon: PaletteIcon,
         description: t("Navbar.color_tools_description", { en: "Tools to manage and generate color palettes" }),
+    },
+    {
+        title: t("Navbar.calculators_title", { en: "Calculator Tools" }),
+        href: "/calculator",
+        icon: Calculator,
+        description: t("Navbar.calculators_description", { en: "Perform various calculations quickly and accurately." }),
+    },
+    {
+        title: t("Navbar.conversions_title", { en: "Conversion Tools" }),
+        href: "/conversions",
+        icon: Dumbbell,
+        description: t("Navbar.conversions_description", { en: "Quickly and easily convert units for length, weight, temperature, and more." }),
     },
 ];
