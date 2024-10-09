@@ -53,10 +53,10 @@ const FooterSection = (props: Props) => {
               <MapPinIcon className="h-5 w-5" />
               <span>Ankara, Çankaya, Oran Mahallesi</span>
             </div>
-            <div className="flex items-center gap-2">
+            {/* <div className="flex items-center gap-2">
               <PhoneIcon className="h-5 w-5" />
               <span>+905384439701</span>
-            </div>
+            </div> */}
             <div className="flex items-center gap-2">
               <MailIcon className="h-5 w-5" />
               <span>ozgancan9@gmail.com</span>
